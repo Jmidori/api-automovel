@@ -25,7 +25,6 @@ public class Boleto {
     private String boletoCode;
 
     public Boleto() {}
-
     public Boleto(String brand, String model, BigDecimal price, LocalDate maturityDate, String boletoCode) {
         this.brand = brand;
         this.model = model;
