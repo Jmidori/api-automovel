@@ -12,7 +12,6 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("/api/automoveis")
 public class RegisterController {
 
     private final CarRepository repository;
@@ -21,7 +20,7 @@ public class RegisterController {
         this.repository = repository;
     }
 
-    @GetMapping
+    @GetMapping("/automoveis")
     public ResponseEntity<List<Car>> getAllCars(){
         try{
             return new ResponseEntity<>(repository.findAll(), HttpStatus.OK) ;

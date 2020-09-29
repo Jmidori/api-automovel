@@ -18,7 +18,6 @@ import javax.validation.Valid;
 import java.math.BigDecimal;
 
 @RestController
-@RequestMapping("/api/pagamento")
 public class BoletoController {
 
     @Autowired
@@ -27,7 +26,7 @@ public class BoletoController {
     private BoletoRepository repository;
     private Boleto boleto;
 
-    @GetMapping("/boleto")
+    @PostMapping("/boleto")
     @ResponseBody
     public ResponseEntity<BoletoResponseImpl> generateBoleto(@RequestBody @Valid BoletoRequestImpl request){
        try {
