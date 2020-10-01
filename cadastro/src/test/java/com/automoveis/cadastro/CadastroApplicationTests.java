@@ -47,7 +47,7 @@ class CadastroApplicationTests {
 
 	@Test
 	@Sql("classpath:/delete.sql")
-	void ShouldCreateANewCarRegister() throws Exception {
+	public void ShouldCreateANewCarRegister() throws Exception {
 		this.mockMvc = MockMvcBuilders.webAppContextSetup(context).build();
 		ResultActions result = mockMvc.perform(post(this.URL+URN_CADASTRO).contentType("application/json")
 				.content(readFile(requestCadastro))).andExpect(status().isCreated());
@@ -57,7 +57,7 @@ class CadastroApplicationTests {
 	}
 	@Test
 	@Sql("classpath:/add-car.sql")
-	void ShouldListAllCars() throws Exception {
+	public void ShouldListAllCars() throws Exception {
 		this.mockMvc = MockMvcBuilders.webAppContextSetup(context).build();
 		ResultActions result = mockMvc.perform(MockMvcRequestBuilders.get(this.URL+URN_LISTAR))
 				.andExpect(status().isOk()).andExpect(content().json(this.readFile(responseAutomoveis)));

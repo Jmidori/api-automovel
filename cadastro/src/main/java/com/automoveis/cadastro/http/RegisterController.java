@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDate;
-import java.util.AbstractList;
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -44,8 +42,5 @@ public class RegisterController {
         }catch (RuntimeException e){
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
-
-
-
     }
 }
