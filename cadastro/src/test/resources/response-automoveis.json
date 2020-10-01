@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "brand": "honda",
+    "model": "civic",
+    "price": 103200.99,
+    "registerDate": "2020-09-29"
+  },
+  {
+    "id": 2,
+    "brand": "honda",
+    "model": "city",
+    "price": 90200.99,
+    "registerDate": "2020-09-30"
+  }
+]
