@@ -7,13 +7,13 @@ import com.automoveis.pagamento.http.response.IPaymentResponse;
 import com.automoveis.pagamento.repository.BoletoRepository;
 import com.automoveis.pagamento.service.IPayment;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.rest.core.RepositoryConstraintViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
-import javax.persistence.PersistenceException;
 import javax.validation.Valid;
 import java.math.BigDecimal;
 
@@ -41,7 +41,6 @@ public class BoletoController {
            return new ResponseEntity<>((BoletoResponseImpl)response, HttpStatus.CREATED);
        } catch (RuntimeException ex){
            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
-           //todo: criar classe de exception
        }
     }
 }

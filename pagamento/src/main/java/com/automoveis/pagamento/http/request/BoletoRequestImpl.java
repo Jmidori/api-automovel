@@ -1,7 +1,6 @@
 package com.automoveis.pagamento.http.request;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import jdk.nashorn.internal.objects.annotations.Getter;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
