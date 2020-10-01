@@ -24,23 +24,24 @@ public class BoletoController {
     private IPayment service;
     @Autowired
     private BoletoRepository repository;
-    private Boleto boleto;
-
     @PostMapping("/boleto")
     @ResponseBody
     public ResponseEntity<BoletoResponseImpl> generateBoleto(@RequestBody @Valid BoletoRequestImpl request){
        try {
            IPaymentResponse<BoletoResponseImpl> response = service.getPaymentOrder(request);
-           boleto = new Boleto(request.getBrand(),
-                   request.getModel(),
-                   new BigDecimal(request.getPrice()),
-                   ((BoletoResponseImpl) response).getMaturityDate(),
-                   ((BoletoResponseImpl) response).getBoletoCode());
-           repository.save(boleto);
+           this.saveBoleto(request, response);
 
            return new ResponseEntity<>((BoletoResponseImpl)response, HttpStatus.CREATED);
        } catch (RuntimeException ex){
            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
        }
+    }
+    private void saveBoleto(BoletoRequestImpl request, IPaymentResponse<BoletoResponseImpl> response){
+        Boleto boleto = new Boleto(request.getBrand(),
+                request.getModel(),
+                new BigDecimal(request.getPrice()),
+                ((BoletoResponseImpl) response).getMaturityDate(),
+                ((BoletoResponseImpl) response).getBoletoCode());
+        repository.save(boleto);
     }
 }
