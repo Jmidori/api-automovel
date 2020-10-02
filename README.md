@@ -3,7 +3,7 @@ Sistema composto por três microserviços: cadastro, geração de boleto para co
 
 O acesso aos serviços de Cadastro e Pagamento devem ser feitos atraves do api gateway.
 
-![](Diagrama de componente.png)
+![](Diagrama-componente.png)
 
 ## Ponto de Partida
 
