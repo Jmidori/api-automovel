@@ -1,22 +1,22 @@
 # Sistema-Automovel
-Sistema composto por três microserviços: cadastro, geração de boleto para compra de automoveis e gateway
+Sistema composto por três microserviços: cadastro, geração de boleto para compra de automoveis e gateway.
+
 O acesso aos serviços de Cadastro e Pagamento devem ser feitos atraves do api gateway.
+
+![](/documentacao/Diagrama de componente.png)
 
 ## Ponto de Partida
 
 ### Iniciar a aplicação via IDE
-1. Abrir o projeto gateway na IDE e executar a classe ApplicationMain
-2. Abrir o projeto cadastro na IDE
-3. Executar a task: mvn clean install
-4. No Terminal, executar o comando: java -jar target\cadastro-0.0.1-SNAPSHOT.jar
-5. Abrir o preojeto pagamento na IDE
-6. Executar a task: mvn clean install
-7. No Terminal, executar o comando: java -jar target\pagamento-0.0.1-SNAPSHOT.jar
+1. Abrir o projeto **gateway** na IDE e executar a classe ApplicationMain
+2. Abrir o projeto **cadastro** na IDE e executar a task: mvn clean install
+3. Ainda no projeto cadastro, atraves do terminal, executar o comando: java -jar target\cadastro-0.0.1-SNAPSHOT.jar (a aplicação subirá na porta 8060)
+5. Abrir o projeto **pagamento** na IDE e executar a task: mvn clean install
+7. Ainda no projeto pagamento, atraves do terminal, executar o comando: java -jar target\pagamento-0.0.1-SNAPSHOT.jar (a aplicação subirá na porta 8050)
 
 Para consumir os serviços descritos abaixo, basta acessa-los atraves da url: **localhost:8080**/  
 
 ## Microserviço Cadastro /cadastro
-porta: 8060
 
 ### [POST] "/cadastroAutomoveis"
 Criar um registro de um novo Carro
@@ -65,7 +65,7 @@ Lista todos os registros de Carro armazenados
      }
    ]
 ```   
-    Status Code 500 - Internal Sever Error
+   Status Code 500 - Internal Sever Error
   
   - Exemplo no Postman cURL:
 ```  
@@ -94,7 +94,7 @@ Gera o numero de boleto e cria o registro desse boleto
       "valor": "String"
     }
 ```    
-    Status Code 500 - Internal Sever Error
+   Status Code 500 - Internal Sever Error
   
   - Exemplo no Postman cURL:
 ```  
